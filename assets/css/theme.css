@@ -22,6 +22,7 @@ Table of Contents
     border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
     border-image-slice: 1;
     border-width: 0 0 1px 0;
+    background-color: var(--dark-color);
 }
 
 .admin-bar .navbar__area {
@@ -182,10 +183,10 @@ body.sticky .navbar__area .main__logo {
     width: 40px;
     height: 40px;
     line-height: 38px;
-    background-color: white;
+    background-color: transparent;
     color: var(--accent-color);
     padding: 0px;
-    border-radius: 2px;
+    border-radius: 5px;
     font-size: 1.5em;
 }
 
@@ -195,6 +196,7 @@ body.sticky .navbar__area .main__logo {
 
 .mobile__menu {
     border: 1px solid var(--secondary-color);
+    background-color: var(--dark-color);
     padding: 14px 24px;
     max-height: 400px;
     overflow-y: auto;
@@ -212,8 +214,27 @@ body.sticky .navbar__area .main__logo {
 }
 
 .mobile__menu .nav li a {
-    padding: 6px 0px;
+    padding: 12px 0px;
     text-transform: capitalize;
+    color: var(--primary-color);
+    position: relative;
+    font-size: 18px;
+    line-height: 1.6em;
+}
+
+.mobile__menu .nav li a .hover__arrow {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 40px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.mobile__menu .nav li:hover > a .hover__arrow,
+.mobile__menu .nav li.current-menu-item > a .hover__arrow,
+.mobile__menu .nav li.active > a .hover__arrow {
+    opacity: 1;
 }
 
 .mobile__menu .nav li ul {
@@ -304,14 +325,25 @@ body.sticky .navbar__area .main__logo {
     margin-bottom: 24px;
 }
 
+.post__media img,
+.post__media a {
+    display: block;
+    width: 100%;
+}
+
 .single .post__media {
     margin-bottom: 42px;
 }
 
 .post__box .post__title {
     font-size: 32px;
+    line-height: 1.2em;
     margin-top: 6px;
     margin-bottom: 0;
+}
+
+.post__box .post__title a {
+    line-height: 1.2em;
 }
 
 .single .post__box .post__title {
@@ -355,37 +387,33 @@ ul.post__meta li a:hover {
     color: var(--accent-color);
 }
 
-.post__box.post__grid {
-    margin: 0;
-}
-
 .post__box.post__grid .post__media {
     margin-bottom: 24px;
 }
 
 .post__box.post__grid .post__title {
-    font-size: 32px;
     margin-top: 12px;
     margin-bottom: 0px;
 }
 
 .pagination {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -0.5em;
+    display: block;
+    text-align: center;
+    padding-top: 64px;
 }
 
 .pagination .page-numbers {
-    width: 2.4em;
-    height: 2.4em;
-    line-height: 2.4em;
-    background-color: #F6F6F6;
-    font-weight: 400;
+    width: 4em;
+    height: 4em;
+    line-height: 4em;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 200;
     text-align: center;
-    margin: 0.5em;
-    border-radius: 4px;
+    margin: .5em;
+    border-radius: 99px;
     display: inline-block;
-    color: var(--primary-color);
+    color: white;
     transition: 0.3s;
 }
 
@@ -395,6 +423,18 @@ ul.post__meta li a:hover {
     color: white;
 }
 
+.pagination .page-numbers.next:not(:hover),
+.pagination .page-numbers.prev:not(:hover) {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.pagination .page-numbers.next {
+    float: right;
+}
+
+.pagination .page-numbers.prev {
+    float: left;
+}
 /* --- Widget__Section --- */
 
 .main__sidebar .widget {
@@ -729,7 +769,7 @@ ul.post__meta li a:hover {
     stroke-dashoffset: 1000;
     stroke-linejoin: round;
     stroke-linecap: round;
-    animation: preloader 5s linear alternate infinite;
+    animation: preloader 15s linear alternate infinite;
 }
 
 

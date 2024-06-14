@@ -32286,7 +32286,7 @@ readers do not read off random characters that represent icons */
 }
 
 .fal,
-.fa-light {
+.fa-regular {
   font-family: 'Font Awesome';
   font-weight: 300;
 }

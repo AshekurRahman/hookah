@@ -26,8 +26,8 @@ if (post_password_required()) return;
             </ol>
             <?php
             the_comments_pagination([
-                'prev_text' => '<i class="fa-light fa-angle-left"></i>',
-                'next_text' => '<i class="fa-light fa-angle-right"></i>',
+                'prev_text' => '<i class="fa-regular fa-arrow-left"></i>',
+                'next_text' => '<i class="fa-regular fa-arrow-right"></i>',
                 'screen_reader_text' => ' ',
                 'type' => 'array',
                 'show_all' => true,

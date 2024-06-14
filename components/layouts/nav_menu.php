@@ -12,7 +12,7 @@
     <?php if (empty($elementor_template) || $elementor_template === 'default'): ?>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-4 col-lg-2">
+                <div class="col-6 col-lg-2">
                     <!--nav__logo-Start-->
                     <div class="nav__logo">
                         <?php
@@ -31,7 +31,7 @@
                     </div>
                     <!--nav__logo-End-->
                 </div>
-                <div class="col-8 col-lg-8 d-flex justify-content-center">
+                <div class="col-8 col-lg-8 d-none d-lg-flex justify-content-center">
                     <!--Nav_Menu-Start-->
                     <div class="nav__menu">
                         <?php
@@ -46,7 +46,7 @@
                     </div>
                     <!--Nav_Menu-End-->
                 </div>
-                <div class="col-6 col-lg-2">
+                <div class="col-6 text-end col-lg-2">
                     <button class="mobile__menu__toggle"><i class="fa-regular fa-bars"></i></button>
                 </div>
             </div>

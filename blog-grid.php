@@ -56,8 +56,8 @@ $custom_query = new WP_Query($args);
                 echo paginate_links(array(
                     'total' => $custom_query->max_num_pages,
                     'current' => $paged,
-                    'prev_text' => '<i class="fa-light fa-angle-left"></i>',
-                    'next_text' => '<i class="fa-light fa-angle-right"></i>',
+                    'prev_text' => '<i class="fa-regular fa-arrow-left"></i>',
+                    'next_text' => '<i class="fa-regular fa-arrow-right"></i>',
                     'screen_reader_text' => ' '
                 )); 
                 ?>

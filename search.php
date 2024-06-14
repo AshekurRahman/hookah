@@ -25,8 +25,8 @@
                     <?php
                          // Previous/next page navigation.
                         the_posts_pagination(array(
-                            'prev_text' => '<i class="fa-light fa-angle-left"></i>',
-                            'next_text' => '<i class="fa-light fa-angle-right"></i>',
+                            'prev_text' => '<i class="fa-regular fa-arrow-left"></i>',
+                            'next_text' => '<i class="fa-regular fa-arrow-right"></i>',
                             'screen_reader_text' => ' '
                         ));
                     ?>

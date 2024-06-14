@@ -16,9 +16,9 @@
 
             'next_or_number' => 'number',
 
-            'nextpagelink'     => '<i class="fa-light fa-angle-right"></i>',
+            'nextpagelink'     => '<i class="fa-regular fa-arrow-right"></i>',
 
-            'previouspagelink' => '<i class="fa-light fa-angle-left"></i>',
+            'previouspagelink' => '<i class="fa-regular fa-arrow-left"></i>',
 
         ) );
 
