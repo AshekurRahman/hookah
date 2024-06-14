@@ -7,17 +7,9 @@ get_template_part('components/layouts/site_header');
 <!-- Post List Area Start -->
 <section class="post__single section__padding__bottom">
     <div class="container">
-        <div class="row justify-content-center">
-            <?php
-            // Determine column classes based on sidebar activation
-            $col_classes = is_active_sidebar('main_sidebar') ? 'col-lg-8' : '';
-            $col_classes_sm = 'col-sm-12 ' . $col_classes;
-            $sidebar_classes = is_active_sidebar('main_sidebar') ? 'col-lg-4 mt-5 mt-lg-0' : '';
-            ?>
-
-            <div class="<?php echo esc_attr($col_classes_sm); ?>">
-                <div class="<?php echo (is_active_sidebar('main_sidebar') ? 'pe-lg-4' : ''); ?>">
-                    <div class="single__post">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+            <div class="single__post">
                         <?php
                         // Loop through posts
                         while (have_posts()) : the_post();
@@ -25,25 +17,14 @@ get_template_part('components/layouts/site_header');
                             if (get_the_author() || hookah_get_post_date() || hookah_get_comment_count() || get_the_category_list() || get_the_tag_list()) : ?>
                                 <ul class="post__meta">
                                     <?php if (get_the_author()) : ?>
-                                        <li class="author"><?php the_author(); ?></li>
+                                        <li class="author"><i class="fa-regular fa-user me-2"></i><?php the_author(); ?></li>
                                     <?php endif; ?>
                                     <?php if ($post_date = hookah_get_post_date()) : ?>
-                                        <li><i class="fa-solid fa-circle-small"></i></li>
-                                        <li class="date"></i><?php echo wp_kses_post($post_date); ?></li>
-                                    <?php endif; ?>
-                                    <?php if ($comment_count = hookah_get_comment_count()) : ?>
-                                        <li><i class="fa-solid fa-circle-small"></i></li>
-                                        <li class="comment"></i><?php echo wp_kses_post($comment_count); ?></li>
+                                        <li class="date"><i class="fa-regular fa-calendar-days me-2"></i><?php echo wp_kses_post($post_date); ?></li>
                                     <?php endif; ?>
                                     <?php if (get_the_category_list()) : ?>
-                                        <li><i class="fa-solid fa-circle-small"></i></li>
-                                        <li class="tag"><?php echo get_the_category_list(', &nbsp;', ' '); ?></li>
+                                        <li class="category"><i class="fa-regular fa-folder me-2"></i><?php echo get_the_category_list(', &nbsp;', ' '); ?></li>
                                     <?php endif; ?>
-                                    <?php if (get_the_tag_list()) : ?>
-                                        <li><i class="fa-solid fa-circle-small"></i></li>
-                                        <li class="tags"><?php echo get_the_tag_list(' ', ', &nbsp;'); ?></li>
-                                    <?php endif; ?>
-
                                 </ul>
                             <?php endif; ?>
                             
@@ -91,14 +72,6 @@ get_template_part('components/layouts/site_header');
                         endwhile; // End the post loop
                         ?>
                     </div>
-                </div>
-            </div>
-
-            <div class="<?php echo esc_attr($sidebar_classes); ?>">
-                <?php
-                // Include the sidebar template
-                get_sidebar();
-                ?>
             </div>
         </div>
     </div>
