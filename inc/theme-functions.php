@@ -103,7 +103,7 @@ function hookah_page_title() {
     if (is_home()) {
         $data .= esc_html($blog_title);
     } elseif (is_single() && 'post' == get_post_type()) {
-        $data .= __( 'Post Details','hookah' );
+        $data .= get_the_title();
     } elseif (is_single()) {
         $data .= get_the_title();
     } elseif (is_search()) {

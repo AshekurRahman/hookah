@@ -2,7 +2,7 @@
 <!-- Post_List_Area-Start -->
 <?php  if( have_posts() ){ ?>
 <?php get_template_part('components/layouts/site_header'); ?>
-<section class="posts_list-area section__padding">
+<section class="posts_list-area section__padding__bottom">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 <?php echo ( is_active_sidebar( 'main_sidebar' ) ? 'col-lg-8' : '' ); ?>">

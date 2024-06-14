@@ -1,13 +1,40 @@
 /*----- Root-Variable -----*/
+@font-face {
+    font-family: 'NeueMontreal';
+    src:    url('../fonts/text-fonts/NeueMontreal-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'NeueMontreal';
+    src:    url('../fonts/text-fonts/NeueMontreal-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'NeueMontreal';
+    src:    url('../fonts/text-fonts/NeueMontreal-Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'NeueMontreal';
+    src:    url('../fonts/text-fonts/NeueMontreal-Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
 :root {
     --primary-color: #131313;
     --secondary-color: #fff5f2;
     --text-color: #505050;
     --accent-color: #386EEF;
     --border-color: #ededed;
+    --dark-color: #080808;
 
-    --body-font-family: 'Inter', sans-serif;
-    --heading-font-family: 'Inter', sans-serif;
+    --body-font-family: 'NeueMontreal', sans-serif;
+    --heading-font-family: 'NeueMontreal', sans-serif;
 
     --navbar-height: 100px;
     --section-padding: 120px;
@@ -17,19 +44,26 @@
 }
 
 body.dark__theme {
-    background-color: #080808;
+    background-color: var(--dark-color);
     
     --primary-color: #ffffff;
-    --secondary-color: #050505;
+    --secondary-color: #141414;
     --text-color: #e7e7e7;
     --accent-color: #386EEF;
-    --border-color: #161515;
+    --border-color: #212121;
 }
 
 /* --- 1. Helper__Classes --- */
 .section__padding {
     padding-top: var(--section-padding);
     padding-bottom: var(--section-padding);
+}
+
+.section__padding__bottom {
+    padding-bottom: var(--section-padding);
+}
+.section__padding__top {
+    padding-top: var(--section-padding);
 }
 
 /* --- 1. Primary__button --- */
@@ -90,6 +124,10 @@ body.dark__theme {
 
 .accent__button:not(.outline):hover {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--accent-color);
     border-color: var(--primary-color);
+}
+
+.accent__color {
+    color: var(--accent-color);
 }

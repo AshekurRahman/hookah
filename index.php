@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php if (have_posts()) : ?>
     <?php get_template_part('components/layouts/site_header'); ?>
-    <section class="posts__section section__padding">
+    <section class="posts__section section__padding__bottom">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 <?php echo (is_active_sidebar('main_sidebar') ? 'col-lg-8' : ''); ?>">

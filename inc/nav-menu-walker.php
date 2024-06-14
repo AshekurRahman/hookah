@@ -54,7 +54,7 @@ class Hookah_Desktop_Menu_Walker extends Walker_Nav_Menu {
             $item_output .= '<span class="collapse__menu"><i class="fa-regular fa-plus"></i></span>';
         }
 
-        $item_output .= '</a>';
+        $item_output .= '<svg class="hover__arrow" width="48" height="12" viewBox="0 0 48 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2 10C16.6667 3.96301 46 -4.48877 46 10" stroke="#F7A1F5" stroke-width="4" stroke-linecap="round"/> </svg></a>';
 
         $item_output .= $args->after;
 

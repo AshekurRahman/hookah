@@ -9,7 +9,16 @@ if ( is_plugin_active( 'elementor/elementor.php' ) ) {
     <div class="container">
         <h1 class="page_title"><?php echo hookah_page_title(); ?></h1>
         <div class="sub__title">
-            <?php echo get_bloginfo( 'description' ); ?>
+            <?php 
+            
+            if(function_exists('codexse_page_breadcrumb')){
+                echo codexse_page_breadcrumb();
+            }else {
+                echo get_bloginfo( 'description' ); 
+
+            }
+            
+            ?>
         </div>
     </div>
 </section>

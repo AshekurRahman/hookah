@@ -11,7 +11,7 @@
     }
     
 ?>
-<section class="<?php echo ( ($elementor_ready !== 'yes') ? 'single_page_area section__padding' : '' ); ?> page__section">
+<section class="<?php echo ( ($elementor_ready !== 'yes') ? 'single_page_area section__padding__bottom' : '' ); ?> page__section">
     <div class="<?php echo ( ($elementor_ready !== 'yes') ? 'container' : '' ); ?>">
         <?php                               
            // Start the loop.

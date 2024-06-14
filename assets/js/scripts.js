@@ -79,26 +79,6 @@
                 }, duration);
                 return false;
             });
-            
-            
-            var swiper = new Swiper('.releted__project .swiper-container', {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                breakpoints: {
-                    // When window width is >= 1024px (desktop)
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                    // When window width is >= 768px and < 1024px (tablet)
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    // When window width is < 768px (mobile)
-                    767: {
-                        slidesPerView: 1,
-                    }
-                }
-            });
         }
 
         /*--- Sticky_Menu ---*/

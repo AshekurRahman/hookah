@@ -11,7 +11,7 @@
 			<div class="container">
 				<div class="text-center">
 					<?php
-					$copyrights_text = get_theme_mod('hookah_copyrights_text', __('&copy;2024 All rights reserved. Powered by <b>Themectg</b>', 'hookah'));
+					$copyrights_text = get_theme_mod('hookah_copyrights_text', __('&copy;2024 All rights reserved. Powered by <b>Codexse</b>', 'hookah'));
 					echo wp_kses_post($copyrights_text);
 					?>
 				</div>

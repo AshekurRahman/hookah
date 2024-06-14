@@ -18,6 +18,10 @@ Table of Contents
     flex-direction: column;
     justify-content: center;
     min-height: var(--navbar-height);
+    border: 1px solid transparent;
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    border-image-slice: 1;
+    border-width: 0 0 1px 0;
 }
 
 .admin-bar .navbar__area {
@@ -25,10 +29,9 @@ Table of Contents
 }
 
 body.sticky .navbar__area {
-    --navbar-height: 80px;
     position: fixed;
     top: 0px;
-    background-color: white;
+    background-color: var(--dark-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .05);
 }
 
@@ -69,7 +72,7 @@ body.sticky .navbar__area .main__logo {
     margin-right: calc(0px - var(--bs-nav-link-padding-y) * 2);
 }
 
-.nav__menu .nav > li {
+.nav__menu .nav>li {
     position: relative;
 }
 
@@ -81,13 +84,27 @@ body.sticky .navbar__area .main__logo {
 
 .nav__menu .nav li a {
     color: var(--primary-color);
+    position: relative;
 }
 
-.nav__menu .nav li.current-menu-item > a {
-    color: var(--accent-color);
+.nav__menu .nav li a .hover__arrow {
+    position: absolute;
+    left: 15%;
+    bottom: 34%;
 }
 
-.nav__menu .nav li:hover > a {
+.nav__menu .nav li a .hover__arrow path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    transition: .5s;
+}
+
+.nav__menu .nav li.current-menu-item>a .hover__arrow path,
+.nav__menu .nav li:hover>a .hover__arrow path {
+    stroke-dashoffset: 0;
+}
+
+.nav__menu .nav li li:hover>a {
     color: var(--accent-color);
 }
 
@@ -120,7 +137,7 @@ body.sticky .navbar__area .main__logo {
     margin-left: auto;
 }
 
-.nav__menu li:hover > a > .collapse__menu i:before {
+.nav__menu li:hover>a>.collapse__menu i:before {
     content: "\f068";
 }
 
@@ -233,10 +250,9 @@ body.sticky .navbar__area .main__logo {
 /* --- 1. Header__Area --- */
 .header__area {
     padding: 5em 0em;
-    text-align: center;
+    text-align: left;
     position: relative;
     z-index: 1;
-    background-color: var(--secondary-color);
 }
 
 .header__area:before {
@@ -249,9 +265,16 @@ body.sticky .navbar__area .main__logo {
     z-index: -1;
 }
 
+.header__area .page_title {
+    font-size: 96px;
+    line-height: 1.1em;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
 .header__area .sub__title {
-    font-size: 1.4em;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     color: var(--primary-color);
 }
 
@@ -264,33 +287,36 @@ body.sticky .navbar__area .main__logo {
 
 /* --- Post__Box --- */
 .post__box {
-    border-radius: 8px;
     margin-bottom: 2em;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    background-color: var(--secondary-color);
 }
 
 .post__box.sticky {
     background-color: var(--secondary-color);
 }
 
-.post__box .post__media {
+.post__media {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    max-height: 20em;
+    border-radius: 32px;
     overflow: hidden;
+    margin-bottom: 24px;
 }
 
-.post__box .post__content {
-    padding: 2.3em;
+.single .post__media {
+    margin-bottom: 42px;
 }
 
 .post__box .post__title {
-    font-size: 2em;
+    font-size: 32px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.single .post__box .post__title {
     margin-bottom: 0.4em;
+    margin-top: 0px;
 }
 
 .post__box .post__desc {
@@ -299,26 +325,25 @@ body.sticky .navbar__area .main__logo {
 
 .post__meta {
     list-style: none;
-    margin: -0.5em -0.8em -0.7em;
+    margin: -5px -10px;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
 }
 
 .post__meta li {
-    margin: 0.3em 0.8em;
+    margin: 5px 10px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     text-transform: capitalize;
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.9em;
 }
 
 ul.post__meta li>i {
     color: var(--accent-color);
-    margin-right: 0.7em;
     line-height: 1em;
 }
 
@@ -328,6 +353,20 @@ ul.post__meta li a {
 
 ul.post__meta li a:hover {
     color: var(--accent-color);
+}
+
+.post__box.post__grid {
+    margin: 0;
+}
+
+.post__box.post__grid .post__media {
+    margin-bottom: 24px;
+}
+
+.post__box.post__grid .post__title {
+    font-size: 32px;
+    margin-top: 12px;
+    margin-bottom: 0px;
 }
 
 .pagination {
@@ -341,7 +380,7 @@ ul.post__meta li a:hover {
     height: 2.4em;
     line-height: 2.4em;
     background-color: #F6F6F6;
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
     margin: 0.5em;
     border-radius: 4px;
@@ -359,7 +398,7 @@ ul.post__meta li a:hover {
 /* --- Widget__Section --- */
 
 .main__sidebar .widget {
-    border-radius: 8px;
+    border-radius: 16px;
     margin-bottom: 2em;
     overflow: hidden;
     padding: 2em;
@@ -628,7 +667,10 @@ ul.post__meta li a:hover {
 .footer__section {
     padding-top: 2em;
     padding-bottom: 2em;
-    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    border-image-slice: 1;
+    border-width: 1px 0 0 0;
 }
 
 /* --- Error__Page --- */
@@ -650,23 +692,58 @@ ul.post__meta li a:hover {
 }
 
 /* --- Preloader__Style --- */
-.preloader .loader__image {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999999;
-    background-color: #0d0420;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.preloader {
+    width: 0;
+    height: 0;
 }
 
-.preloader .loader__image img {
-    width: 20%;
-    min-width: 250px;
+.preloader .loader {
+    position: fixed;
+    /* Fixed positioning to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999999;
+    /* Ensuring it's on top of other elements */
+    display: flex;
+    align-items: center;
+    /* Centering content vertically */
+    justify-content: center;
+    /* Centering content horizontally */
+    background-color: var(--dark-color);
 }
+
+.preloader .loader .loader__svg {
+    width: 100vw;
+    height: 180px;
+    filter: url(#fire);
+}
+
+.preloader .loader .loader__text {
+    font-size: 10vw;
+    fill: none;
+    stroke: #386EEF;
+    stroke-width: 3px;
+    stroke-dasharray: 810;
+    stroke-dashoffset: 1000;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    animation: preloader 5s linear alternate infinite;
+}
+
+
+@keyframes preloader {
+    to {
+        stroke-dasharray: 500;
+    }
+}
+
+.preloader .smoke {
+    width: 0;
+    height: 0;
+}
+
 
 /* --- Single__Project__Style --- */
 .releted__project {

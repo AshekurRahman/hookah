@@ -2,6 +2,9 @@
 // hookah Theme Setup
 if( !function_exists('hookah_setup_theme') ){
 	function hookah_setup_theme(){
+
+		add_image_size( 'square', 500, 440, true );
+
 		/*
 		* Make theme available for translation.
 		* If you're building a theme based on hookah, use a find and replace
@@ -211,7 +214,7 @@ if ( !function_exists( 'hookah_fonts_url' ) ) {
  */
 function hookah_scripts() {
 	// Add google fonts, used in the main stylesheet.
-	wp_enqueue_style( 'hookah-custom-fonts', hookah_fonts_url(), array(), null );   
+	//wp_enqueue_style( 'hookah-custom-fonts', hookah_fonts_url(), array(), null );   
 	// Add Bootstrap, Used for default grid system.
 	wp_enqueue_style( 'bootstrap', get_theme_file_uri('/assets/css/bootstrap-min.css'), array(), '5.1.1' );  
 	wp_enqueue_style( 'hookah-root', get_theme_file_uri('/assets/css/root.css'), array(), wp_get_theme()->get( 'Version' )  );	                

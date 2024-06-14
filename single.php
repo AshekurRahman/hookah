@@ -5,7 +5,7 @@ get_template_part('components/layouts/site_header');
 ?>
 
 <!-- Post List Area Start -->
-<section class="post__single section__padding">
+<section class="post__single section__padding__bottom">
     <div class="container">
         <div class="row justify-content-center">
             <?php
@@ -21,28 +21,27 @@ get_template_part('components/layouts/site_header');
                         <?php
                         // Loop through posts
                         while (have_posts()) : the_post();
-
-                            // Display post title if it exists
-                            if (get_the_title()) :
-                                echo '<h2 class="post__title">' . esc_html(get_the_title()) . '</h2>';
-                            endif;
-
+                            hookah_post_thumbnail('large');
                             if (get_the_author() || hookah_get_post_date() || hookah_get_comment_count() || get_the_category_list() || get_the_tag_list()) : ?>
                                 <ul class="post__meta">
                                     <?php if (get_the_author()) : ?>
-                                        <li class="author"><i class="fa-light fa-user icon"></i><?php the_author(); ?></li>
+                                        <li class="author"><?php the_author(); ?></li>
                                     <?php endif; ?>
                                     <?php if ($post_date = hookah_get_post_date()) : ?>
-                                        <li class="date"><i class="fa-light fa-calendar-days icon"></i><?php echo wp_kses_post($post_date); ?></li>
+                                        <li><i class="fa-solid fa-circle-small"></i></li>
+                                        <li class="date"></i><?php echo wp_kses_post($post_date); ?></li>
                                     <?php endif; ?>
                                     <?php if ($comment_count = hookah_get_comment_count()) : ?>
-                                        <li class="comment"><i class="fa-light fa-comments icon"></i><?php echo wp_kses_post($comment_count); ?></li>
+                                        <li><i class="fa-solid fa-circle-small"></i></li>
+                                        <li class="comment"></i><?php echo wp_kses_post($comment_count); ?></li>
                                     <?php endif; ?>
                                     <?php if (get_the_category_list()) : ?>
-                                        <li class="tag"><i class="fa-light fa-folders icon"></i><?php echo get_the_category_list(', &nbsp;', ' '); ?></li>
+                                        <li><i class="fa-solid fa-circle-small"></i></li>
+                                        <li class="tag"><?php echo get_the_category_list(', &nbsp;', ' '); ?></li>
                                     <?php endif; ?>
                                     <?php if (get_the_tag_list()) : ?>
-                                        <li class="tags"><i class="fa-light fa-tags icon"></i><?php echo get_the_tag_list(' ', ', &nbsp;'); ?></li>
+                                        <li><i class="fa-solid fa-circle-small"></i></li>
+                                        <li class="tags"><?php echo get_the_tag_list(' ', ', &nbsp;'); ?></li>
                                     <?php endif; ?>
 
                                 </ul>

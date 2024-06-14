@@ -608,7 +608,7 @@ class Hookah_Customize {
       // Add a text control for copyrights text in the Footer section
       $wp_customize->add_setting( 'hookah_copyrights_text',
          array(
-            'default'           => __('&copy;2024 All rights reserved. Powered by <b>Themectg</b>','hookah'),
+            'default'           => __('&copy;2024 All rights reserved. Powered by <b>Codexse</b>','hookah'),
             'sanitize_callback' => 'sanitize_text_field',
          )
       );
@@ -719,18 +719,6 @@ class Hookah_Customize {
             'disable' => __('Disable', 'hookah'),
          ),
       ));
-
-      // Control for Preloader Image
-      $wp_customize->add_setting('hookah_preloader_image', array(
-         'default'           => get_theme_file_uri('assets/images/preloader.gif'),
-         'sanitize_callback' => 'esc_url_raw',
-      ));
-
-      $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hookah_preloader_image', array(
-         'label'    => __('Preloader Image', 'hookah'),
-         'section'  => 'hookah_preloader_settings',
-         'settings' => 'hookah_preloader_image',
-      )));
 
       // Control for Preloader Width
       $wp_customize->add_setting('preloader_width', array(

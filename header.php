@@ -13,14 +13,22 @@
     <!-- Preloader Start -->
     <?php
     $preloader_status = get_theme_mod('hookah_preloader_status', 'enable');
-    $preloader_image  = get_theme_mod('hookah_preloader_image', get_theme_file_uri('assets/images/preloader.gif'));
-
     if ($preloader_status === 'enable') : ?>
-        <div class="preloader">
-			<div class="loader__image">
-            <img src="<?php echo esc_url($preloader_image); ?>" alt="Preloader">
-			</div>
+    <div class="preloader">
+        <svg class="smoke">
+            <filter id="fire">
+                <feTurbulence id="turbulence" baseFrequency="0.1 0.1" numOctaves="2" seed="3">
+                    <animate attributeName="baseFrequency" dur="10s" values="0.1 0.1; 0.12 0.12" repeatCount="indefinite"></animate>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="12"></feDisplacementMap>
+            </filter>
+        </svg>
+        <div class="loader">
+            <svg class="loader__svg">
+                <text class="loader__text" text-anchor="middle" x="50%" y="75%"><?php _e('Hookah','hookah'); ?></text>
+            </svg>
         </div>
+    </div>
     <?php endif; ?>
     <!-- Preloader End -->
 
